@@ -25,7 +25,7 @@ void renderCube() {
 	MATRIX4X4 rotMat=rotateY(30);
 	MATRIX4X4 transMat=translate(0,1,0);
 	MATRIX4X4 scaleMat=scale(1);
-	modelMatrix=rotMat*transMat*scaleMat;
+	modelMatrix=transMat*rotMat*scaleMat;
 	currTexture=texWood->sampler;
 	cube->render(frontBuffer,depthBuffer,vertexShader,fragmentShader,CULL_BACK);
 }
@@ -34,7 +34,7 @@ void renderCubeShadow() {
 	MATRIX4X4 rotMat=rotateY(30);
 	MATRIX4X4 transMat=translate(0,1,0);
 	MATRIX4X4 scaleMat=scale(1);
-	modelMatrix=rotMat*transMat*scaleMat;
+	modelMatrix=transMat*rotMat*scaleMat;
 	cube->render(shadowFrame,shadowDepth,storeVertShader,storeFragShader,CULL_FRONT);
 }
 
